@@ -19,10 +19,10 @@
                 <!-- URLs após autenticação -->
                 {{#if session.userid}}
                     <li><a href='/toughts/dashboard'>dashboard</a></li>
-                    <li><a href='/logout'>Sair</a></li>
+                    <li><a href='/logout' class='cta'>Sair</a></li>
                 {{else}}
-                    <li><a href='/login'>Entrar</a></li>
                     <li><a href='/register'>Registrar</a></li>
+                    <li><a href='/login' class='cta'>Entrar</a></li>
                 {{/if}}
             </ul>
         </nav>
