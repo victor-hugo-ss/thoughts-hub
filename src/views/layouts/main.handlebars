@@ -1,24 +1,42 @@
-<html lang='pt-br'>
+<html lang='pt-BR'>
     <head>
         <meta charset='UTF-8' />
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <title>Thoughts Hub</title>
+        <link rel='preconnect' href='https://fonts.googleapis.com' />
+        <link
+            href='https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500&display=swap'
+            rel='stylesheet'
+        />
+        <link rel='stylesheet' href='/css/style.css' />
     </head>
     <body>
+
         <nav>
-            <a href=''></a>
+            <a href='/' class='brand'>⬡ Thoughts Hub</a>
             <ul>
-                <li>
-                    <a href=''></a>
-                    <!-- URLs após autenticação -->
-                </li>
+                <li><a href='/'>Pensamentos</a></li>
+                <!-- URLs após autenticação -->
+                {{#if session.userid}}
+                    <li><a href='/toughts/dashboard'>dashboard</a></li>
+                    <li><a href='/logout'>Sair</a></li>
+                {{else}}
+                    <li><a href='/login'>Entrar</a></li>
+                    <li><a href='/register'>Registrar</a></li>
+                {{/if}}
             </ul>
         </nav>
-        <div>
-            {{body}}
+        <div class='container'>
+            {{#if messages.message}}
+                <div class='message'>
+                    {{messages.message}}
+                </div>
+            {{/if}}
+            {{{body}}}
         </div>
         <footer>
-            <p><span>Thoughts</span> &copy; 2026</p>
+            <p><span>Thoughts Hub</span> &copy; 2026</p>
+            <span>feito com Node.js</span>
         </footer>
     </body>
 </html>

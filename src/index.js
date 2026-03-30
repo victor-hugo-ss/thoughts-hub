@@ -27,7 +27,7 @@ app.set('view engine', 'handlebars');
 app.set('views', './src/views');
 
 // Pasta pública para arquivos estáticos
-app.use(express.static('public'));
+app.use(express.static('./src/public'));
 
 // Receber resposta do body
 app.use(express.urlencoded({ extended: true }));
