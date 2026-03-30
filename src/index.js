@@ -5,6 +5,7 @@ const FileStore = require('session-file-store')(session);
 const flash = require('express-flash');
 require('dotenv').config();
 
+const conn = require('./config/db');
 const PORT = process.env.PORT;
 const app = express();
 
@@ -21,6 +22,10 @@ app.use(express.urlencoded({ extended: true }));
 // Permite a aplicação entender JSON no body
 app.use(express.json());
 
-app.listen(PORT, () => {
-    console.log(`App rodando na porta: ${PORT}`);
-});
+conn.sync()
+    .then(() => {
+        app.listen(PORT, () => {
+            console.log(`App rodando na porta: ${PORT}`);
+        });
+    })
+    .catch((err) => console.log(err));
