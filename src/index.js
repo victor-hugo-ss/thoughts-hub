@@ -7,7 +7,12 @@ require('dotenv').config();
 
 const conn = require('./config/db');
 const PORT = process.env.PORT;
+
 const app = express();
+
+// Models
+const Tought = require('./models/Thought');
+const User = require('./models/User');
 
 // Template Engine
 app.engine('handlebars', exphbs.engine());
